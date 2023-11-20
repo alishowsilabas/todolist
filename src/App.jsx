@@ -1,7 +1,12 @@
+import Nome from "./assets/components/Nome";
+
 function App() {
-  return <>
-  Començando a aprender Next.JS
-  </>;
+  return (
+    <>
+      <Nome nomeAluno="Adair" />
+      <Nome nomeAluno="Joarez" />
+    </>
+  );
 }
 
 export default App;
