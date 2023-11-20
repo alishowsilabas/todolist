@@ -4,7 +4,6 @@ function App() {
   return (
     <>
       <Nome nomeAluno="Adair" />
-      <Nome nomeAluno="Joarez" />
     </>
   );
 }
