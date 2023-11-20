@@ -1,11 +1,10 @@
-import Nome from "./assets/components/Nome";
+import React from 'react'
+import Form from './assets/components/Form'
 
-function App() {
+const App = () => {
   return (
-    <>
-      <Nome nomeAluno="Adair" />
-    </>
-  );
+    <div><Form /></div>
+  )
 }
 
-export default App;
+export default App
