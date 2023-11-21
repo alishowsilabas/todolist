@@ -1,10 +1,12 @@
-import React from 'react'
-import Form from './assets/components/Form'
+import React from "react";
+import Tarefas from "./assets/components/Tarefas";
 
 const App = () => {
   return (
-    <div><Form /></div>
-  )
-}
+    <div>
+      <Tarefas />
+    </div>
+  );
+};
 
-export default App
+export default App;
