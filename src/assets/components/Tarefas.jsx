@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Tarefas.css";
 
 const Tarefas = () => {
@@ -6,13 +6,23 @@ const Tarefas = () => {
   const [tarefas, setTarefas] = useState([]);
   const [aviso, setAviso] = useState("");
 
+  // Carregar tarefas do localStorage ao inicializar o componente
+  useEffect(() => {
+    const storedTarefas = JSON.parse(localStorage.getItem("tarefas")) || [];
+    setTarefas(storedTarefas);
+  }, []);
+
+  // Atualizar o localStorage sempre que as tarefas mudarem
+  useEffect(() => {
+    localStorage.setItem("tarefas", JSON.stringify(tarefas));
+  }, [tarefas]);
+
   function handleRegister(e) {
     e.preventDefault();
     if (input.trim() !== "") {
-      // .trim(): é um método de strings em JavaScript que remove os espaços em branco do início e do final da string.
       setTarefas([...tarefas, { descricao: input, concluida: false }]);
-      setInput(""); // limpa o campo input anterior
-      setAviso(""); // Limpa o campo aviso se houver aviso anterior
+      setInput("");
+      setAviso("");
     } else {
       setAviso("Não é possível registrar uma tarefa vazia.");
     }
@@ -40,7 +50,7 @@ const Tarefas = () => {
         <button type="submit">Registrar Tarefa</button>
       </form>
       <div className="listaTarefas">
-        <p>{aviso}</p>
+        <p className="aviso">{aviso}</p>
         <ul>
           {tarefas.map((tarefa, index) => (
             <li key={index}>
