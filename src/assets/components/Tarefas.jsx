@@ -6,15 +6,17 @@ const Tarefas = () => {
   const [tarefas, setTarefas] = useState([]);
   const [aviso, setAviso] = useState("");
 
-  // Carregar tarefas do localStorage ao inicializar o componente
   useEffect(() => {
-    const storedTarefas = JSON.parse(localStorage.getItem("tarefas")) || [];
+    console.log("Carregando tarefas do localStorage...");
+    const storedTarefas = JSON.parse(localStorage.getItem("@tarefas")) || [];
+    console.log("Tarefas carregadas:", storedTarefas);
     setTarefas(storedTarefas);
   }, []);
-
-  // Atualizar o localStorage sempre que as tarefas mudarem
+  
   useEffect(() => {
-    localStorage.setItem("tarefas", JSON.stringify(tarefas));
+    console.log("Atualizando localStorage...");
+    localStorage.setItem("@tarefas", JSON.stringify(tarefas));
+    console.log("Tarefas atualizadas:", tarefas);
   }, [tarefas]);
 
   function handleRegister(e) {
