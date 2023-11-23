@@ -1,0 +1,95 @@
+/* Estilos para o checkbox personalizado */
+
+.addTarefa {
+  font-size: 14px;
+  margin: 10px;
+  text-align: center;
+}
+
+.listaTarefas {
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+/* Estilo para o checkbox personalizado */
+
+.container {
+  display: block;
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 18px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+}
+
+/* Oculta o checkbox nativo */
+
+/* Estilo para o checkbox personalizado */
+
+.checkmark {
+  position: absolute;
+  top: 4px;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  background-color: #c7c7c7;
+}
+
+/* No mouse-over, adiciona uma cor de fundo cinza */
+
+.container {
+  &:hover input ~ .checkmark {
+    background-color: rgb(176, 179, 176);
+  }
+
+  input:checked ~ .checkmark {
+    background-color: rgb(208, 245, 208);
+  }
+}
+
+/* Quando o checkbox está marcado, adiciona uma cor de fundo azul */
+
+/* Cria o indicador do check (oculto quando não marcado) */
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Mostra o indicador do check quando marcado */
+
+.container {
+  input:checked ~ .checkmark:after {
+    display: block;
+  }
+
+  .checkmark:after {
+    left: 9px;
+    top: 2px;
+    width: 4px;
+    height: 14px;
+    border: solid rgb(5, 247, 5);
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+  }
+}
+
+/* Estilo do indicador do check */
+
+.aviso {
+  color: rgb(187, 74, 74);
+}
